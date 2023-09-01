@@ -98,6 +98,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="calculateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2YY-a8-tTI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -105,6 +108,7 @@
                     </view>
                     <connections>
                         <outlet property="employmentFieldOutlet" destination="3n0-K1-SdJ" id="gKr-3m-vmn"/>
+                        <outlet property="employmentRateOutlet" destination="jmN-fm-SZe" id="Qej-zE-yuV"/>
                         <outlet property="unemploymentFieldOutlet" destination="P8A-mu-VyG" id="gIQ-o3-7LW"/>
                     </connections>
                 </viewController>
