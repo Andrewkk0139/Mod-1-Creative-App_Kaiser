@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         print("hi")
     }
     @IBAction func calculateAction(_ sender: Any) {
+        unemploymentFieldOutlet.resignFirstResponder()
+        employmentFieldOutlet.resignFirstResponder()
         var rate: Double?
         let unemployment = Int(unemploymentFieldOutlet.text!)
         let employment = Int(employmentFieldOutlet.text!)
@@ -28,10 +30,12 @@ class ViewController: UIViewController {
                 employmentRateOutlet.text = "The Employment Rate: \(rate!)%"
             } else {
                 employmentRateOutlet.text = "Invalid Data"
+                imageViewOutlet.image = UIImage(named: "error")
                 return
             }
         } else{
             employmentRateOutlet.text = "Invalid Data"
+            imageViewOutlet.image = UIImage(named: "error")
             return
         }
         if((rate!) >= 50){
