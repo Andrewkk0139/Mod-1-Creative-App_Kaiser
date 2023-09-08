@@ -9,31 +9,39 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var unemploymentFieldOutlet: UILabel!
+    @IBOutlet weak var unemploymentFieldOutlet: UITextField!
     @IBOutlet weak var employmentFieldOutlet: UITextField!
     @IBOutlet weak var employmentRateOutlet: UILabel!
+    @IBOutlet weak var imageViewOutlet: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("hi")
     }
     @IBAction func calculateAction(_ sender: Any) {
-        var unemployment = Int(unemploymentFieldOutlet.text!)
-        var employment = Int(employmentFieldOutlet.text!)
+        var rate: Double?
+        let unemployment = Int(unemploymentFieldOutlet.text!)
+        let employment = Int(employmentFieldOutlet.text!)
         if let a = unemployment {
-            if let a = employment {
-             var rate = (Double(unemployment!)/Double(employment!)) * 100
-                employmentRateOutlet.text = "The Employment Rate: \(rate)"
+            if let b = employment {
+                rate = round(((Double(a)/Double(b)) * 100) * 100) / 100
+                employmentRateOutlet.text = "The Employment Rate: \(rate!)%"
             } else {
                 employmentRateOutlet.text = "Invalid Data"
+                return
             }
         } else{
             employmentRateOutlet.text = "Invalid Data"
+            return
         }
-        
+        if((rate!) >= 50){
+            imageViewOutlet.image = UIImage(named: "downGraph")
+        } else {
+            imageViewOutlet.image = UIImage(named: "upGraph")
+        }
     }
     
     
     
 
 }
-
