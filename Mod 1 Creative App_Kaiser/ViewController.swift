@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         let employment = Int(employmentFieldOutlet.text!)
         if let a = unemployment {
             if let b = employment {
+                //Round is my creative feature
                 rate = round(((Double(a)/Double(b)) * 100) * 100) / 100
                 employmentRateOutlet.text = "The Employment Rate: \(rate!)%"
             } else {
